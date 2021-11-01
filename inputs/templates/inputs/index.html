@@ -1,0 +1,24 @@
+{% extends "inputs/base.html" %}
+{% load static %}
+
+{% block content %}
+<img src="{% static 'inputs/img/insper_logo.png' %}" />
+<p>Courses' Choice 2021.2 (Business, Economics and Engineering)</p>
+
+<form method="post">
+    {% csrf_token %}
+  <label for="name">Full Name</label>
+  <input id="name" type="text" name="name" />
+  <label for="homeUniversity">Home University</label>
+  <input id="homeUniversity" name="homeUniversity"></input>
+  <input type="submit" />
+</form>
+
+<ul>
+    {% for candidate in candidates %}
+    <li>{{ candidate.name }}</li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
