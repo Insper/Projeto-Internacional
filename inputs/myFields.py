@@ -11,8 +11,19 @@ DAY_OF_THE_WEEK = {
     'Sunday' : _(u'Sunday'),
 }
 
+STATUS_ENUM = {
+    'Available' : _(u'Available'),
+    'Unavailable' : _(u'Unavailable'),
+}
+
 class DayOfTheWeekField(models.CharField):
     def __init__(self, *args, **kwargs):
         kwargs['choices']=tuple(sorted(DAY_OF_THE_WEEK.items()))
         kwargs['max_length']=9
         super(DayOfTheWeekField,self).__init__(*args, **kwargs)
+
+class Status(models.CharField):
+    def __init__(self, *args, **kwargs):
+        kwargs['choices']=tuple(sorted(STATUS_ENUM.items()))
+        kwargs['max_length']= 11
+        super(Status,self).__init__(*args, **kwargs)
