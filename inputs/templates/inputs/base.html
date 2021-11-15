@@ -1,10 +1,16 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'inputs/css/style.css' %}">
     <meta charset="UTF-8" />
     <title>Forms</title>
   </head>
 
+  <div class="appbar">
+    <img class="logo" src="{% static 'inputs/img/insper.png' %}" />
+  </div>
+  
   <body>
     {% block content %} {% endblock %}
   </body>

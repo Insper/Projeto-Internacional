@@ -2,23 +2,69 @@
 {% load static %}
 
 {% block content %}
-<img src="{% static 'inputs/img/insper_logo.png' %}" />
-<p>Courses' Choice 2021.2 (Business, Economics and Engineering)</p>
+
+
+<p class="subtitle"> Courses' Choice 2021.2 (Business, Economics and Engineering)</p>
+
+<div class="redBox">
+  <p class="textRedBox"> 
+    Please, read this carefully. <br> <br>
+
+    We have defined the list of elective courses taught in English for the fall semester (August - December 2021). <br><br>
+
+    Attached to the e-mail you received you will find the syllabus and timetable for the courses. <br><br>
+
+    Please indicate your Course’s choices until June 11 – 12:00 (Brazil Time) in the form below.<br><br>
+
+    Take special attention to the timetable, courses are offered once or twice a week, depending on the course load. <br><br>
+    - 6 ECTS courses : Classes twice a week. <br>
+    - 3 ECTS courses: Classes once a week. <br><br>
+
+    It is very important to make sure you avoid overlaps in your choices, be very attentive to the classes timetable. You will not be able to choose courses in the same time slots. <br><br>
+
+    Attention: Available spaces in each course are first-come-first-serve basis, we will confirm your courses' choice by June 25th. <br><br>
+
+    Based on availability, students will be able to add or drop courses on the first week of classes, only. <br><br>
+
+    Let us know if you have any doubts. <br><br>
+
+    Kind Regards.<br><br>
+
+    Insper International Office
+  </p>
+</div>
 
 <form method="post">
     {% csrf_token %}
-  <label for="name">Full Name</label>
-  <input id="name" type="text" name="name" />
-  <label for="homeUniversity">Home University</label>
-  <input id="homeUniversity" name="homeUniversity"></input>
-  <input type="submit" />
+  <label for="name">1.Full Name (as written in passport):</label><br> 
+  <input class="inputFields" id="name" type="text" name="name" /> <br>
+  <label for="homeUniversity">2.Home University:</label> <br>
+  <input class="inputFields" id="homeUniversity" name="homeUniversity"></input><br>
 </form>
+
+<div class="calendarAndCourses">
+  <img class="calendarProvisorio" src="{% static 'inputs/img/calendarExample.png' %}" />
+
+  <form class="coursesBox" action="/">
+    <input type="checkbox" id="course1" name="course1" value="course1">
+    <label for="course1"> Advanced Topics in Corporate Finance (Paulo Beltrão Fraletti - 6 ECTS)</label><br>
+    <input type="checkbox" id="course2" name="course2" value="course2">
+    <label for="course2"> Analysis of the Economic Environment II (João Luiz Mascolo - 6 ECTS)</label><br>
+    <input type="checkbox" id="course3" name="course3" value="course3">
+    <label for="course3"> Introduction to Quantum Computing (Luciano Silva - 6 ECTS)</label><br>
+    <input type="checkbox" id="course4" name="course4" value="course4">
+    <label for="course3"> Decision Making and Negotiation (Patricia Tavares - 6 ECTS)</label><br>
+
+  </form>
+</div>
 
 <ul>
     {% for candidate in candidates %}
     <li>{{ candidate.name }}</li>
     {% endfor %}
 </ul>
+
+<input type="submit" />
 
 
 {% endblock %}
