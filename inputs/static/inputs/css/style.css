@@ -34,7 +34,7 @@ form{
     display: flex;
     flex-direction: row;
     width: 93%;
-    height: 20%;
+    height: 70%;
     background-color: #F9C6BF;
     margin: 40px;
 }
@@ -63,13 +63,57 @@ form{
 .calendarAndCourses{
     display: flex;
     flex-direction: row;
+    height: 350px;
+    margin-left: 40px ;
 }
 
-.coursesBox{
+.row{
     display: flex;
-    flex-direction: column;
-    /* width: 93%; */
-    height: 40%;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55%;
+}
+
+.columnsDays{
+    padding: 0.25%;
+    background-color: #C4C4C4;
+    white-space: nowrap;
+    margin-right: 1rem;
+    width: 95px;
+    height: 100%;
+    border-radius: 1%;
+    border-style: solid;
+    border-color: coral;
+
+}
+
+
+.rectangle{
+    margin-left: 40px;
+    text-indent: 15px;
+    padding: 0.1rem;
+    letter-spacing: 49.5px;
+    /* width: 650px; */
+    width: 52%;
+    height: 32px;
+    left: 40px;
+    background: #F9C6BF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+}
+
+/* #F9C6BF */
+
+
+.cousesBox{
+    margin: 0;
     background-color: #F9C6BF;
-    margin: 40px;
+    height: 250px;
+    width: 405px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 2%;
+}
+
+
+.abreviations{
 }

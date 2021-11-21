@@ -40,31 +40,67 @@
   <input class="inputFields" id="name" type="text" name="name" /> <br>
   <label for="homeUniversity">2.Home University:</label> <br>
   <input class="inputFields" id="homeUniversity" name="homeUniversity"></input><br>
+
+  <div>
+    <p class="rectangle">M T W T F S<p>
+  </div>
+
+  <div class="calendarAndCourses">
+
+    <div class="row">
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+    </div>
+
+
+    <!-- <form action="/"> -->
+      <div class="coursesBox">
+        <input type="checkbox" id="course1" name="courses1" value="course1">
+        <label for="course1"> Advanced Topics in Corporate Finance (Paulo Beltrão Fraletti - 6 ECTS)</label><br>
+        <input type="checkbox" id="course1" name="courses1" value="course2">
+        <label for="course2"> Analysis of the Economic Environment II (João Luiz Mascolo - 6 ECTS)</label><br>
+        <input type="checkbox" id="course1" name="courses1" value="course3">
+        <label for="course3"> Introduction to Quantum Computing (Luciano Silva - 6 ECTS)</label><br>
+        <input type="checkbox" id="course1" name="courses1" value="course4">
+        <label for="course3"> Decision Making and Negotiation (Patricia Tavares - 6 ECTS)</label><br>
+      </div>
+    <!-- </form> -->
+  </div>
+
+  <ul>
+      {% for candidate in candidates %}
+      <li>{{candidate.name}}  {{candidate.homeUniversity}}</li>
+      {% endfor %}
+
+      {% for course in courses %}
+      <li>{{course.name}}  {{course.professor}}  {{course.ects}}</li>
+      {% endfor %}
+  </ul>
+
+  <input type="checkbox" name="checks[]" value="1" />
+  <input type="checkbox" name="checks[]" value="2" />
+  <input type="checkbox" name="checks[]" value="3" />
+  <input type="checkbox" name="checks[]" value="4" />
+
+  <button class="btn" type="submit">Criar</button>
+
 </form>
-
-<div class="calendarAndCourses">
-  <img class="calendarProvisorio" src="{% static 'inputs/img/calendarExample.png' %}" />
-
-  <form class="coursesBox" action="/">
-    <input type="checkbox" id="course1" name="course1" value="course1">
-    <label for="course1"> Advanced Topics in Corporate Finance (Paulo Beltrão Fraletti - 6 ECTS)</label><br>
-    <input type="checkbox" id="course2" name="course2" value="course2">
-    <label for="course2"> Analysis of the Economic Environment II (João Luiz Mascolo - 6 ECTS)</label><br>
-    <input type="checkbox" id="course3" name="course3" value="course3">
-    <label for="course3"> Introduction to Quantum Computing (Luciano Silva - 6 ECTS)</label><br>
-    <input type="checkbox" id="course4" name="course4" value="course4">
-    <label for="course3"> Decision Making and Negotiation (Patricia Tavares - 6 ECTS)</label><br>
-
-  </form>
-</div>
-
-<ul>
-    {% for candidate in candidates %}
-    <li>{{ candidate.name }}</li>
-    {% endfor %}
-</ul>
-
-<input type="submit" />
 
 
 {% endblock %}
