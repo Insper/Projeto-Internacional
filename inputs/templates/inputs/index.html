@@ -71,14 +71,86 @@
 
     <!-- <form action="/"> -->
       <div class="coursesBox">
-        <input type="checkbox" id="course1" name="courses1" value="course1">
-        <label for="course1"> Advanced Topics in Corporate Finance (Paulo Beltrão Fraletti - 6 ECTS)</label><br>
-        <input type="checkbox" id="course1" name="courses1" value="course2">
-        <label for="course2"> Analysis of the Economic Environment II (João Luiz Mascolo - 6 ECTS)</label><br>
-        <input type="checkbox" id="course1" name="courses1" value="course3">
-        <label for="course3"> Introduction to Quantum Computing (Luciano Silva - 6 ECTS)</label><br>
-        <input type="checkbox" id="course1" name="courses1" value="course4">
-        <label for="course3"> Decision Making and Negotiation (Patricia Tavares - 6 ECTS)</label><br>
+        {%for course in courses %}
+        <input type="checkbox" id="course1" name="courses1" value='{{course.name}}'>
+        <label for="course1"> {{course.name}} - {{course.professor}} - {{course.ects}}</label><br>
+        {% endfor %}
+      </div>
+    <!-- </form> -->
+  </div>
+
+  <div>
+    <p class="rectangle">M T W T F S<p>
+  </div>
+
+  <div class="calendarAndCourses">
+
+    <div class="row">
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+    </div>
+
+
+    <!-- <form action="/"> -->
+      <div class="coursesBox">
+        {%for course in courses %}
+        <input type="checkbox" id="course2" name="courses2" value='{{course.name}}'>
+        <label for="course1"> {{course.name}} - {{course.professor}} - {{course.ects}}</label><br>
+        {% endfor %}
+      </div>
+    <!-- </form> -->
+  </div>
+
+  <div>
+    <p class="rectangle">M T W T F S<p>
+  </div>
+
+  <div class="calendarAndCourses">
+
+    <div class="row">
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+      <div class="columnsDays">
+        <p></p>
+      </div> 
+    </div>
+
+
+    <!-- <form action="/"> -->
+      <div class="coursesBox">
+        {%for course in courses %}
+        <input type="checkbox" id="courses3" name="courses3" value='{{course.name}}'>
+        <label for="course1"> {{course.name}} - {{course.professor}} - {{course.ects}}</label><br>
+        {% endfor %}
       </div>
     <!-- </form> -->
   </div>

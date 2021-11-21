@@ -12,34 +12,60 @@ def index(request):
         candidate = Candidate(name = name, homeUniversity = homeUniversity)
         candidate.save()
 
-        courses = request.POST.getlist('courses1')
-        some_var = request.POST.getlist('checks[]')
-        print("SOME VAR", some_var)
-        for c in courses:
-            print(c.name)
-            elemento = Course(name=c)
-            elemento.save()
-        
-        #  for i in range(len(lista_de_tags)):
-        #     elemento = Tag(tag=lista_de_tags[i])
-        #     elemento.save()
-        #     quote.tags.add(elemento)
-            
+        courses = request.POST.getlist('courses1')        
 
-        print("Esses são os cursos: ", courses)
-        # print("ESSES SAO COURSES: ", courses)
-        # priority = request.POST.get(1)
-        # candidato, criado = Candidate.objects.get_or_create(name=name)
-        
         candidato, criada = Candidate.objects.get_or_create(name=name, homeUniversity=homeUniversity)
         if criada:
             candidato.save()
         print("ESSE É O CANDIDATO!:", candidato)
-        
-        timetable = Timetable(courses= courses, priority= 1, candidate=candidato)
-        timetable.save()
-     
 
+        timetable = Timetable(priority= 1, candidate=candidato)
+        timetable.save()
+
+        data = 0
+        for course in courses: 
+            print("Olha o nome do curso: ", course)
+            curso1 = Course.objects.get(name=course)
+            timetable.courses.add(curso1)
+
+
+        #------------------------------ opção 2 de curso------------------------------------
+
+        courses = request.POST.getlist('courses2')        
+
+        candidato, criada = Candidate.objects.get_or_create(name=name, homeUniversity=homeUniversity)
+        if criada:
+            candidato.save()
+        print("ESSE É O CANDIDATO!:", candidato)
+
+        timetable = Timetable(priority= 2, candidate=candidato)
+        timetable.save()
+
+        for course in courses: 
+            print("Olha o nome do curso: ", course)
+            curso2 = Course.objects.get(name=course)
+            print(curso2)
+            timetable.courses.add(curso2)
+
+        #---------------------------------------- opção 3 de curso----------------------------
+
+        courses = request.POST.getlist('courses3')        
+
+        candidato, criada = Candidate.objects.get_or_create(name=name, homeUniversity=homeUniversity)
+        if criada:
+            candidato.save()
+        print("ESSE É O CANDIDATO!:", candidato)
+
+        timetable = Timetable(priority= 3, candidate=candidato)
+        timetable.save()
+
+        for course in courses: 
+            print("Olha o nome do curso: ", course)
+            curso3 = Course.objects.get(name=course)
+            print(curso3)
+            timetable.courses.add(curso3)        
+        
+        
         return redirect('index')
     else:
         all_candidates = Candidate.objects.all()
