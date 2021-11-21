@@ -1,119 +1,156 @@
-html{
-    font-family: Segoe UI,Segoe WP,Tahoma,Arial,sans-serif;
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: all 0.5s ease-in-out 0s;
 }
 
-form{
-    margin: 40px;
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
 }
 
-.logo{
-    align-items: flex-start;
-    max-width: 10%;
-    height: 54px;
+body {
+  margin: 74px 40px 0;
 }
 
-.appbar{
-    display: flex;
-    flex-direction: row;
-    padding: 0.4rem;
-    box-shadow: 5px 2px 3px grey; 
-    background-color: #EA0D0D;
-    width: 100%;
-    height: 54px;
+:root {
+  --color-primary: #ea0d0d;
+  --color-secondary: #f9c6bf;
+  --color-tertiary: #c4c4c4;
 }
 
-.subtitle{
-    margin-left: 40px;
-    margin-top: 2rem;
-    font-size: 1rem;
-    font-weight:500;
-    color: black;
-}
-  
-.redBox{
-    display: flex;
-    flex-direction: row;
-    width: 93%;
-    height: 70%;
-    background-color: #F9C6BF;
-    margin: 40px;
+.logo {
+  align-items: flex-start;
+  max-width: 10%;
+  height: 54px;
 }
 
-.textRedBox{
-    margin-left: 1rem;
+.appbar {
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: row;
+  padding: 0 40px;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
+  background-color: var(--color-primary);
+  height: 54px;
+  position: fixed;
+  width: 100vw;
+}
 
+.subtitle {
+  margin: 25px 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: black;
+}
+
+.redBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: var(--color-secondary);
+  margin: 20px 0;
+  padding: 15px 20px;
+}
+
+.textRedBox {
+  /* margin: 1rem; */
+}
+
+form {
+  margin: 40px 0;
 }
 
 .inputFields {
-    width: 96%;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: solid black;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-.calendarProvisorio{
-    margin: 40px;
-    width: 30%;
-    height: 20%;
+  width: 100%;
+  color: black;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.calendarAndCourses{
-    display: flex;
-    flex-direction: row;
-    height: 350px;
-    margin-left: 40px ;
+.calendarAndCourses {
+  margin: 30px 0;
+  display: flex;
+  flex-direction: row;
+  height: 350px;
 }
 
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 55%;
+.calendarAndCourseContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-.columnsDays{
-    padding: 0.25%;
-    background-color: #C4C4C4;
-    white-space: nowrap;
-    margin-right: 1rem;
-    width: 95px;
-    height: 100%;
-    border-radius: 1%;
-    border-style: solid;
-    border-color: coral;
-
+.calendarBox {
+  width: 75%;
+  padding: 0 15px 0 0;
+  height: 100%;
 }
 
-
-.rectangle{
-    margin-left: 40px;
-    text-indent: 15px;
-    padding: 0.1rem;
-    letter-spacing: 49.5px;
-    /* width: 650px; */
-    width: 52%;
-    height: 32px;
-    left: 40px;
-    background: #F9C6BF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
+.rectangle {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  height: 32px;
+  background: var(--color-secondary);
+  border-radius: 5px 5px 0 0;
+  justify-content: space-around;
+  align-items: center;
 }
 
-/* #F9C6BF */
-
-
-.cousesBox{
-    margin: 0;
-    background-color: #F9C6BF;
-    height: 250px;
-    width: 405px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-    border-radius: 2%;
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 91%;
 }
 
+.columnsDays {
+  padding: 0.25%;
+  background-color: #c4c4c4;
+  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  margin: 1px 0.5px;
+}
 
-.abreviations{
+.coursesBox {
+  margin: 0;
+  background-color: var(--color-secondary);
+  border-radius: 5px 5px 0 0;
+}
+
+.coursesBox h1 {
+  margin: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+}
+
+.inputList {
+  padding: 0px 10px;
+  height: 80%;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
 }
