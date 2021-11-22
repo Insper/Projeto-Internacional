@@ -17,15 +17,13 @@ body {
 }
 
 :root {
-  --color-primary: #ea0d0d;
+  --color-primary: #c4161c;
   --color-secondary: #f9c6bf;
-  --color-tertiary: #c4c4c4;
+  --color-tertiary: #bcbec0;
 }
 
 .logo {
-  align-items: flex-start;
-  max-width: 10%;
-  height: 54px;
+  padding: 10px 0;
 }
 
 .appbar {
@@ -88,6 +86,12 @@ form {
   width: 100%;
 }
 
+@media (max-width: 600px) {
+  .calendarAndCourseContainer {
+    flex-direction: column;
+  }
+}
+
 .calendarBox {
   width: 75%;
   padding: 0 15px 0 0;
@@ -108,7 +112,7 @@ form {
 .row {
   display: flex;
   flex-direction: row;
-  height: 91%;
+  height: calc(100% - 32px);
 }
 
 .columnsDays {

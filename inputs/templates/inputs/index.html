@@ -55,7 +55,7 @@
           <li>S</li>
         </ul>
             
-        <div class="row">
+        <div id="rowOption1" class="row">
           <div class="columnsDays m">
             <p></p>
           </div> 
@@ -81,8 +81,10 @@
         <h1>Select the courses below:</h1>
         <div class='inputList'>
           {%for course in courses %}
-          <input type="checkbox" id="course1" name="courses1" value='{{course.name}}'>
-          <label for="course1"> {{course.name}} - {{course.professor}} - {{course.ects}}</label><br>
+          <div>
+            <input type="checkbox" id="course1" name="courses1" value='{{course.name}}'>
+            <label for="course1">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
+          </div>
           {% endfor %}
         </div>
       </div>
@@ -101,7 +103,7 @@
           <li>S</li>
         </ul>
             
-        <div class="row">
+        <div id="rowOption2" class="row">
           <div class="columnsDays m">
             <p></p>
           </div> 
@@ -127,8 +129,10 @@
         <h1>Select the courses below:</h1>
         <div class='inputList'>
           {%for course in courses %}
-          <input type="checkbox" id="course2" name="courses2" value='{{course.name}}'>
-          <label for="course2"> {{course.name}} - {{course.professor}} - {{course.ects}}</label><br>
+          <div>
+            <input type="checkbox" id="course2" name="courses2" value='{{course.name}}'>
+            <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
+          </div>
           {% endfor %}
         </div>
       </div>
@@ -147,7 +151,7 @@
           <li>S</li>
         </ul>
             
-        <div class="row">
+        <div id="rowOption3" class="row">
           <div class="columnsDays m">
             <p></p>
           </div> 
@@ -173,8 +177,10 @@
         <h1>Select the courses below:</h1>
         <div class='inputList'>
           {%for course in courses %}
-          <input type="checkbox" id="course3" name="courses3" value='{{course.name}}'>
-          <label for="course3"> {{course.name}} - {{course.professor}} - {{course.ects}}</label><br>
+          <div>
+            <input type="checkbox" id="course3" name="courses3" value='{{course.name}}'>
+            <label for="course3">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
+          </div>
           {% endfor %}
         </div>
       </div>
