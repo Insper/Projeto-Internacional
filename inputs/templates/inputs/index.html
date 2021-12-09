@@ -131,7 +131,11 @@
           {%for course in courses %}
           <div>
             <input type="checkbox" id="course2" name="courses2" value='{{course.name}}'>
-            <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
+            <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}} </label>
+            {%for data in course.dates.all %}
+            <label> {{data}} </label>
+
+            {% endfor %}
           </div>
           {% endfor %}
         </div>
