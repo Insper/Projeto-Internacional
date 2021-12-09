@@ -110,8 +110,9 @@ form {
 }
 
 .row {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  gap: 0 1px;
+  grid-template-columns: repeat(6, 1fr);
   height: calc(100% - 32px);
 }
 
@@ -122,6 +123,25 @@ form {
   width: 100%;
   height: 100%;
   margin: 1px 0.5px;
+}
+
+.calendarClassBox {
+  margin: 0;
+  text-align: center;
+  background-color: var(--color-secondary);
+  padding: 2px 1px;
+}
+
+.calendarClassBox span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+}
+
+.calendarClassBox p {
+  white-space: pre-wrap;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .coursesBox {

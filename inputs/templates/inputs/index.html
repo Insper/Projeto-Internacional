@@ -1,5 +1,6 @@
 {% extends "inputs/base.html" %}
 {% load static %}
+{% load tags %}
 
 {% block content %}
 
@@ -56,22 +57,21 @@
         </ul>
             
         <div id="rowOption1" class="row">
-          <div class="columnsDays m">
+          <div class="columnsDays Monday">
+          </div> 
+          <div class="columnsDays Tuesday">
             <p></p>
           </div> 
-          <div class="columnsDays t">
+          <div class="columnsDays Wednesday">
             <p></p>
           </div> 
-          <div class="columnsDays w">
+          <div class="columnsDays Thursday">
             <p></p>
           </div> 
-          <div class="columnsDays t">
+          <div class="columnsDays Friday">
             <p></p>
           </div> 
-          <div class="columnsDays f">
-            <p></p>
-          </div> 
-          <div class="columnsDays s">
+          <div class="columnsDays Saturday">
             <p></p>
           </div> 
         </div>
@@ -82,7 +82,7 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input type="checkbox" id="course1" name="courses1" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption1')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses1" value='{{course.name}}'>
             <label for="course1">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
@@ -132,10 +132,6 @@
           <div>
             <input type="checkbox" id="course2" name="courses2" value='{{course.name}}'>
             <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}} </label>
-            {%for data in course.dates.all %}
-            <label> {{data}} </label>
-
-            {% endfor %}
           </div>
           {% endfor %}
         </div>
@@ -204,6 +200,9 @@
   <button class="btn" type="submit">Criar</button>
 
 </form>
+
+<script src="{% static 'inputs/script/input.js' %}"></script>
+
 
 
 {% endblock %}
