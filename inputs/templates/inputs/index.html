@@ -1,6 +1,5 @@
 {% extends "inputs/base.html" %}
 {% load static %}
-{% load tags %}
 
 {% block content %}
 
@@ -53,7 +52,6 @@
           <li>W</li>
           <li>T</li>
           <li>F</li>
-          <li>S</li>
         </ul>
             
         <div id="rowOption1" class="row">
@@ -70,10 +68,7 @@
           </div> 
           <div class="columnsDays Friday">
             <p></p>
-          </div> 
-          <div class="columnsDays Saturday">
-            <p></p>
-          </div> 
+          </div>
         </div>
       </div>
     
@@ -91,7 +86,7 @@
     </div>
   </div>
 
-  <div class="calendarAndCourses course1">
+  <div class="calendarAndCourses course2">
     <div class="calendarAndCourseContainer">
       <div class="calendarBox">
         <ul class="rectangle">
@@ -100,28 +95,23 @@
           <li>W</li>
           <li>T</li>
           <li>F</li>
-          <li>S</li>
         </ul>
             
         <div id="rowOption2" class="row">
-          <div class="columnsDays m">
+          <div class="columnsDays Monday">
+          </div> 
+          <div class="columnsDays Tuesday">
             <p></p>
           </div> 
-          <div class="columnsDays t">
+          <div class="columnsDays Wednesday">
             <p></p>
           </div> 
-          <div class="columnsDays w">
+          <div class="columnsDays Thursday">
             <p></p>
           </div> 
-          <div class="columnsDays t">
+          <div class="columnsDays Friday">
             <p></p>
-          </div> 
-          <div class="columnsDays f">
-            <p></p>
-          </div> 
-          <div class="columnsDays s">
-            <p></p>
-          </div> 
+          </div>
         </div>
       </div>
     
@@ -130,8 +120,8 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input type="checkbox" id="course2" name="courses2" value='{{course.name}}'>
-            <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}} </label>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption2')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses2" value='{{course.name}}'>
+            <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
         </div>
@@ -139,7 +129,7 @@
     </div>
   </div>
 
-  <div class="calendarAndCourses course1">
+  <div class="calendarAndCourses course3">
     <div class="calendarAndCourseContainer">
       <div class="calendarBox">
         <ul class="rectangle">
@@ -148,28 +138,23 @@
           <li>W</li>
           <li>T</li>
           <li>F</li>
-          <li>S</li>
         </ul>
             
         <div id="rowOption3" class="row">
-          <div class="columnsDays m">
+          <div class="columnsDays Monday">
+          </div> 
+          <div class="columnsDays Tuesday">
             <p></p>
           </div> 
-          <div class="columnsDays t">
+          <div class="columnsDays Wednesday">
             <p></p>
           </div> 
-          <div class="columnsDays w">
+          <div class="columnsDays Thursday">
             <p></p>
           </div> 
-          <div class="columnsDays t">
+          <div class="columnsDays Friday">
             <p></p>
-          </div> 
-          <div class="columnsDays f">
-            <p></p>
-          </div> 
-          <div class="columnsDays s">
-            <p></p>
-          </div> 
+          </div>
         </div>
       </div>
     
@@ -178,7 +163,7 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input type="checkbox" id="course3" name="courses3" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption3')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses3" value='{{course.name}}'>
             <label for="course3">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
@@ -186,6 +171,7 @@
       </div>
     </div>
   </div>
+
 
   <ul>
       {% for candidate in candidates %}

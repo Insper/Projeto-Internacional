@@ -31,8 +31,10 @@ function createBox(course, date, rowOption) {
   var day = date.split(" - ")[0];
   var hour = date.split(" - ")[1];
 
+  var idName = "box" + courseId + rowOption + day;
+
   var div = document.createElement("div");
-  div.id = "box" + courseId + rowOption + day;
+  div.id = idName;
   div.className = "calendarClassBox";
 
   var span = document.createElement("span");
@@ -47,8 +49,26 @@ function createBox(course, date, rowOption) {
     .getElementById(rowOption)
     .getElementsByClassName("columnsDays " + day)[0]
     .appendChild(div);
+}
 
-  return;
+function updateBox() {
+  // delete all elements with className "calendarClassBox"
+  var elements = document.getElementsByClassName("calendarClassBox");
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
+  }
+
+  for (var rowOption in options) {
+    for (var day in options[rowOption]) {
+      for (var course in options[rowOption][day]) {
+        createBox(
+          options[rowOption][day][course]["course"],
+          options[rowOption][day][course]["date"],
+          rowOption
+        );
+      }
+    }
+  }
 }
 
 function checkInput(e, courseId, course, dateInfo, rowOption) {
@@ -57,33 +77,36 @@ function checkInput(e, courseId, course, dateInfo, rowOption) {
   var dates = stringDate.split("<CourseDate: ").map((e) => e.split(">")[0]);
   dates.shift();
 
-  //   console.log(e, courseId, course, dates);
-  //   if (e.checked) {
-  //     option1.push(courseId);
+  for (var date of dates) {
+    dayOfWeek = date.split(" - ")[0];
+    var idName = "box" + courseId + rowOption + dayOfWeek;
 
-  //   for (var date of dates) {
-  //     createBox(course, date, rowOption);
-  //   }
+    // check if some object has same date value
+    var sameDate = options[rowOption][dayOfWeek].filter((e) => e.date == date);
 
-  if (!e.checked) {
-    for (var date of dates) {
-      dayOfWeek = date.split(" - ")[0];
-      var idName = "box" + courseId + rowOption + dayOfWeek;
-      document.getElementById(idName).remove();
+    if (!e.checked) {
       options[rowOption][dayOfWeek] = options[rowOption][dayOfWeek].filter(
         (e) => e.id != idName
       );
+    } else {
+      if (sameDate.length) {
+        alert("Conflito de datas!");
+        e.checked = false;
+        break;
+      } else {
+        options[rowOption][dayOfWeek].push({
+          id: idName,
+          course: course,
+          date: date,
+        });
+
+        // reorder the array by date
+        options[rowOption][dayOfWeek].sort((a, b) => {
+          return a.date > b.date ? 1 : -1;
+        });
+      }
     }
-  } else {
-    for (var date of dates) {
-      dayOfWeek = date.split(" - ")[0];
-      var idName = "box" + courseId + rowOption + dayOfWeek;
-      createBox(course, date, rowOption);
-      options[rowOption][dayOfWeek].push({
-        id: idName,
-        course: course,
-        date: date,
-      });
-    }
+
+    updateBox();
   }
 }
