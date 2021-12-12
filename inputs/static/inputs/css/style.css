@@ -165,7 +165,7 @@ form {
 
 .inputList {
   padding: 0px 10px;
-  height: 80%;
+  height: 72%;
   overflow-y: scroll;
 }
 
@@ -183,4 +183,53 @@ form {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-secondary);
+}
+
+
+.bn632-hover {
+  width: 10%;
+  padding: 1.5%;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn28 {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      #f02e34,
+      #df3338,
+      #e2373f
+    );
+    box-shadow: 0 1px 3px rgba(242, 97, 103, 0.4);
+  }
+
+.buttonCenter{
+  display: flex;
+  justify-content: center;
+  margin: 5px;
 }

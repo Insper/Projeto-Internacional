@@ -110,3 +110,15 @@ function checkInput(e, courseId, course, dateInfo, rowOption) {
     updateBox();
   }
 }
+
+function clearOptions(rowOption, idCheckbox) {
+  for (var day in options[rowOption]) {
+    options[rowOption][day] = [];
+  }
+  
+  var checkboxes = document.getElementsByClassName(idCheckbox);
+  for (var checkbox of checkboxes) {
+    checkbox.checked = false;
+  }
+  updateBox();
+}

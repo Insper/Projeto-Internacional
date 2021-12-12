@@ -92,13 +92,17 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption1')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses1" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption1')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses1" class="checkbox1" value='{{course.name}}'>
             <label for="course1">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="buttonCenter">
+    <a class="bn632-hover bn28" onclick="clearOptions('rowOption1', 'checkbox1')">Clear All</a>
   </div>
 
   <br><br>
@@ -142,13 +146,17 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption2')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses2" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption2')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses2" class="checkbox2" value='{{course.name}}'>
             <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="buttonCenter">
+    <a class="bn632-hover bn28" onclick="clearOptions('rowOption2', 'checkbox2')">Clear All</a>
   </div>
 
   <br><br>
@@ -191,7 +199,7 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption3')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses3" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption3')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses3" class="checkbox3" value='{{course.name}}'>
             <label for="course3">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
@@ -200,6 +208,9 @@
     </div>
   </div>
 
+  <div class="buttonCenter">
+    <a class="bn632-hover bn28" onclick="clearOptions('rowOption3', 'checkbox3')">Clear All</a>
+  </div>
 
   <!-- <ul>
       {% for candidate in candidates %}
@@ -211,7 +222,9 @@
       {% endfor %}
   </ul> -->
 
-  <button class="btn" type="submit">Criar</button>
+  <div class="buttonCenter">
+    <button class="bn632-hover bn28" type="submit">Submit</button>
+  </div>
 
 </form>
 
