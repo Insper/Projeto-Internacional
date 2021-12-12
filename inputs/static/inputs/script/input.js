@@ -84,13 +84,23 @@ function checkInput(e, courseId, course, dateInfo, rowOption) {
     // check if some object has same date value
     var sameDate = options[rowOption][dayOfWeek].filter((e) => e.date == date);
 
+    var sameDateOtherDate = 0;
+
+    if (dates.length == 2 && dates.indexOf(date) == 0) {
+      var secondElement = dates[1];
+      var dayOfWeekSecondElement = secondElement.split(" - ")[0];
+      sameDateOtherDate = options[rowOption][dayOfWeekSecondElement].filter(
+        (e) => e.date == secondElement
+      );
+    }
+
     if (!e.checked) {
       options[rowOption][dayOfWeek] = options[rowOption][dayOfWeek].filter(
         (e) => e.id != idName
       );
     } else {
-      if (sameDate.length) {
-        alert("Conflito de datas!");
+      if (sameDate.length || sameDateOtherDate.length) {
+        alert("Date Conflict!");
         e.checked = false;
         break;
       } else {
@@ -115,7 +125,7 @@ function clearOptions(rowOption, idCheckbox) {
   for (var day in options[rowOption]) {
     options[rowOption][day] = [];
   }
-  
+
   var checkboxes = document.getElementsByClassName(idCheckbox);
   for (var checkbox of checkboxes) {
     checkbox.checked = false;
