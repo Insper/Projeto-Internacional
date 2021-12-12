@@ -150,9 +150,15 @@ form {
   border-radius: 5px 5px 0 0;
 }
 
-.coursesBox h1 {
+.coursesBox h1{
   margin: 10px;
   font-size: 1.5rem;
+  font-weight: 700;
+  color: black;
+}
+
+.coursesBox h4{
+  margin: 10px;
   font-weight: 700;
   color: black;
 }

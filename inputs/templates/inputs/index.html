@@ -41,7 +41,21 @@
   <label for="homeUniversity">2.Home University:</label> <br>
   <input class="inputFields" id="homeUniversity" name="homeUniversity"></input><br>
 
-    
+  <div class="redBox">
+    <div class="textRedBox">
+      <h4> Attention! </h4> <br><br>
+
+      You must choose three schedule options for this semester in order of priority (first option, second option and third option). <br><br>
+      If you can only choose one schedule option, you must repeat the same courses you selected in the first option to the second 
+      and third as well. <br><br>
+      As you select the courses, you'll see the day(s) of the week and time that the course is held. 
+
+    </div>
+  </div>
+
+  <br><br>
+  <h3>First Option</h3>
+  <br>
 
   <div class="calendarAndCourses course1">
     <div class="calendarAndCourseContainer">
@@ -74,6 +88,7 @@
     
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
+        <h4>ECTS - Course - Professor</h4>
         <div class='inputList'>
           {%for course in courses %}
           <div>
@@ -85,6 +100,11 @@
       </div>
     </div>
   </div>
+
+  <br><br>
+  <h3>Second Option</h3>
+  <br>
+
 
   <div class="calendarAndCourses course2">
     <div class="calendarAndCourseContainer">
@@ -117,6 +137,8 @@
     
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
+        <h4>ECTS - Course - Professor</h4>
+
         <div class='inputList'>
           {%for course in courses %}
           <div>
@@ -128,6 +150,10 @@
       </div>
     </div>
   </div>
+
+  <br><br>
+  <h3>Third Option</h3>
+  <br>
 
   <div class="calendarAndCourses course3">
     <div class="calendarAndCourseContainer">
@@ -160,6 +186,8 @@
     
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
+        <h4>ECTS - Course - Professor</h4>
+
         <div class='inputList'>
           {%for course in courses %}
           <div>
@@ -173,7 +201,7 @@
   </div>
 
 
-  <ul>
+  <!-- <ul>
       {% for candidate in candidates %}
       <li>{{candidate.name}}  {{candidate.homeUniversity}}</li>
       {% endfor %}
@@ -181,7 +209,7 @@
       {% for course in courses %}
       <li>{{course.name}}  {{course.professor}}  {{course.ects}}</li>
       {% endfor %}
-  </ul>
+  </ul> -->
 
   <button class="btn" type="submit">Criar</button>
 
