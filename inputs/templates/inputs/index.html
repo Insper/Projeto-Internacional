@@ -147,7 +147,7 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption2')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses2" class="checkbox2" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption2', '{{course.ects}}'); sumEcts('rowOption2', 'checkbox2')" type="checkbox" id="courseInput_'{{course.id}}'" type="checkbox" id="courseInput_'{{course.id}}'" name="courses2" class="checkbox2" value='{{course.name}}'>
             <label for="course2">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
@@ -200,7 +200,7 @@
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption3')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses3" class="checkbox3" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption3', '{{course.ects}}'); sumEcts('rowOption3', 'checkbox3')" type="checkbox" id="courseInput_'{{course.id}}'" type="checkbox" id="courseInput_'{{course.id}}'" name="courses3" class="checkbox3" value='{{course.name}}'>
             <label for="course3">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}
