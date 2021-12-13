@@ -101,11 +101,11 @@ def index(request):
 
         #--------------------------Conferindo os checks e postando tudo -----------------------
 
-        if Checando1:
+        if Checando1 or dataList1 == []:
             return render(request, 'inputs/erro.html')
-        elif Checando2:
+        elif Checando2 or dataList2 == []:
             return render(request, 'inputs/erro.html')
-        elif Checando3:
+        elif Checando3 or dataList3 == []:
             return render(request, 'inputs/erro.html')
         else:
             #--------------- Postando a primeira opção --------------------------

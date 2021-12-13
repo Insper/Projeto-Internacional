@@ -89,10 +89,11 @@
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
+        <!-- <h4> Sum of ECTS :  </h4> -->
         <div class='inputList'>
           {%for course in courses %}
           <div>
-            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption1')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses1" class="checkbox1" value='{{course.name}}'>
+            <input onchange="checkInput(this,'{{course.id}}', '{{course}}', '{{course.dates.all}}','rowOption1', '{{course.ects}}'); sumEcts('rowOption1', 'checkbox1')" type="checkbox" id="courseInput_'{{course.id}}'" name="courses1" class="checkbox1" value='{{course.name}}'>
             <label for="course1">{{course.ects}} ECTS - {{course.name}} - {{course.professor}}</label>
           </div>
           {% endfor %}

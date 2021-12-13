@@ -18,7 +18,7 @@ body {
 
 :root {
   --color-primary: #c4161c;
-  --color-secondary: #f9c6bf;
+  --color-secondary: #f69679;
   --color-tertiary: #bcbec0;
 }
 
@@ -103,7 +103,8 @@ form {
   list-style: none;
   width: 100%;
   height: 32px;
-  background: var(--color-secondary);
+  background: var(--color-primary);
+  color: white;
   border-radius: 5px 5px 0 0;
   justify-content: space-around;
   align-items: center;
@@ -232,7 +233,7 @@ form {
 .buttonCenter{
   display: flex;
   justify-content: center;
-  margin: 5px;
+  margin: 5px 0 5px;
 }
 
 /* ---------------------------------------------------- */

@@ -5,7 +5,7 @@ var options = {
     Wednesday: [],
     Thursday: [],
     Friday: [],
-    Saturday: [],
+    // Saturday: [],
   },
   rowOption2: {
     Monday: [],
@@ -13,7 +13,7 @@ var options = {
     Wednesday: [],
     Thursday: [],
     Friday: [],
-    Saturday: [],
+    // Saturday: [],
   },
   rowOption3: {
     Monday: [],
@@ -21,7 +21,7 @@ var options = {
     Wednesday: [],
     Thursday: [],
     Friday: [],
-    Saturday: [],
+    // Saturday: [],
   },
 };
 
@@ -72,7 +72,8 @@ function updateBox() {
   }
 }
 
-function checkInput(e, courseId, course, dateInfo, rowOption) {
+function checkInput(e, courseId, course, dateInfo, rowOption, ects) {
+
   const stringDate = JSON.stringify(dateInfo);
 
   var dates = stringDate.split("<CourseDate: ").map((e) => e.split(">")[0]);
@@ -114,6 +115,7 @@ function checkInput(e, courseId, course, dateInfo, rowOption) {
           id: idName,
           course: course,
           date: date,
+          ects: ects
         });
 
         // reorder the array by date
@@ -138,3 +140,32 @@ function clearOptions(rowOption, idCheckbox) {
   }
   updateBox();
 }
+
+function sumEcts(rowOption, idCheckbox){
+  var dict = {};
+  for (var day in options[rowOption]){
+    for (var course in options[rowOption][day]){
+      let curso = options[rowOption][day][course]["course"];
+      let ects = options[rowOption][day][course]["ects"]
+      if(!(curso in dict)){
+        dict[curso] = ects;
+      }
+    } 
+  }
+
+  var somaEcts = 0; 
+  for (var key in dict){
+    somaEcts+= parseInt(dict[key]); 
+  }
+  
+  console.log("Sum of ECTS: ", somaEcts)
+
+  // var h4 = document.createElement("h4");
+  // var text = document.createTextNode("Sum of ECTS: " + [somaECTS]);
+  // h4.appendChild(text);
+  // var element = document.getElementsByClassName("coursesBox");
+  // element.appendChild(h4);
+
+}
+
+
