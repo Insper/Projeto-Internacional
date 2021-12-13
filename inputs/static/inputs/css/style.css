@@ -77,7 +77,7 @@ form {
   margin: 30px 0;
   display: flex;
   flex-direction: row;
-  height: 350px;
+  height: 470px;
 }
 
 .calendarAndCourseContainer {
@@ -148,6 +148,7 @@ form {
   margin: 0;
   background-color: var(--color-secondary);
   border-radius: 5px 5px 0 0;
+  padding: 0.5rem;
 }
 
 .coursesBox h1{
@@ -165,7 +166,7 @@ form {
 
 .inputList {
   padding: 0px 10px;
-  height: 72%;
+  height: 75%;
   overflow-y: scroll;
 }
 
@@ -233,3 +234,6 @@ form {
   justify-content: center;
   margin: 5px;
 }
+
+/* ---------------------------------------------------- */
+

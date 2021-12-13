@@ -25,6 +25,7 @@ var options = {
   },
 };
 
+
 function createBox(course, date, rowOption) {
   var courseId = course.split(". ")[0];
   var courseName = course.split(". ")[1];
@@ -100,7 +101,12 @@ function checkInput(e, courseId, course, dateInfo, rowOption) {
       );
     } else {
       if (sameDate.length || sameDateOtherDate.length) {
-        alert("Date Conflict!");
+        // alert("Date Conflict!");
+        Swal.fire(
+          'Oops...',
+          'You can not select classes that are simultaneous!',
+          'error'
+        )
         e.checked = false;
         break;
       } else {
