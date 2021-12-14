@@ -1,0 +1,134 @@
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+body {
+  margin: 74px 40px 0;
+}
+
+:root {
+  --color-primary: #c4161c;
+  --color-secondary: #f69679;
+  --color-tertiary: #bcbec0;
+}
+
+.logo {
+  padding: 10px 0;
+}
+
+.appbar {
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: row;
+  padding: 0 40px;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
+  background-color: var(--color-primary);
+  height: 54px;
+  position: fixed;
+  width: 100vw;
+}
+
+/* .subtitle {
+  margin: 25px 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: black;
+} */
+
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.card-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box{
+    width: 420px;
+    margin: 0.25rem;
+    border-bottom: 20px solid var(--color-primary);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: -100000000;
+  }
+  
+  .box h2{
+    color: #fff;
+    background : var(--color-primary);
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .box ul{
+    position: relative;
+    background: #fff;
+  }
+  
+  .box ul:hover li{
+    opacity: 0.2;
+  }
+  
+  ul{
+    padding:0px;
+  }
+  
+  .box ul li{
+    list-style: none;
+    padding: 10px;
+    /* width: 100%; */
+    background: #fff;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .1);
+    transition: transform 0.5s;
+  }
+  
+  .box ul li a{
+    color: #111;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .box ul li:hover{
+    transform: scale(1.1);
+    z-index: 100;
+    background: var(--color-secondary);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, .2);
+    color: #fff;
+    opacity: 1;
+  }
+  
+  .box ul li span{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: var(--color-primary);
+    color: #fff;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    transform: translateY(-2px);
+  }
+  
+  .box ul li:hover span{
+    background: #fff;
+    color:var(--color-secondary) ;
+  
+  }
+  

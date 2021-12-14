@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'inputs/css/tables.css' %}"
+    />
+
+    <meta charset="UTF-8" />
+    <title>Projeto International</title>
+    <link rel="icon" href="{% static 'inputs/img/logo_insper.png' %}" />
+  </head>
+
+  <div class="appbar">
+    <img class="logo" src="{% static 'inputs/img/Insper-negativo.png' %}" />
+  </div>
+
+  <body>
+    <title> Lista de Grades Horárias dos Alunos</title>
+
+    <div class="row">
+        <div class="card-box">
+            <div class="box">
+            <h2>Lista de Grades Horárias</h2>
+                {% for timetable in timetables %}
+                <ul>
+                    <li><span>{{timetable.priority}}</span> Priority - Student: {{timetable.candidate.name}}
+                        {% for course in timetable.courses.all %}
+                        <p> ➤ {{course.name}}</p>
+                        {% endfor %}
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card-box">
+            <div class="box">
+            <h2>Lista de Matérias e suas Informações </h2>
+            {% for course in courses %}
+                <ul>
+                    <li><span>{{course.ects}}</span> ECTS - {{course.name}} 
+                        <p>Professor(s): {{course.professor}}</p>
+                        {%for date in course.dates.all %}
+                            <p> 📍 {{date}}</p>
+                        {% endfor %}
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+        
+  </body>
+</html>
+
+
+
+

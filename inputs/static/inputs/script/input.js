@@ -165,7 +165,10 @@ function sumEcts(rowOption, idCheckbox){
   // h4.appendChild(text);
   // var element = document.getElementsByClassName("coursesBox");
   // element.appendChild(h4);
+}
 
+function updateSum(){
+  
 }
 
 

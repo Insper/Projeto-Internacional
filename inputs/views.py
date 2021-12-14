@@ -156,3 +156,10 @@ def index(request):
         all_candidates = Candidate.objects.all()
         all_courses = Course.objects.all()
         return render(request, 'inputs/index.html', {'candidates': all_candidates, 'courses': all_courses})
+
+
+def telaVisualizacao(request):
+    all_timetables = Timetable.objects.all()
+    all_courses = Course.objects.all()
+    print(all_timetables)
+    return render(request, 'inputs/timetables.html', {'timetables': all_timetables, 'courses': all_courses})
