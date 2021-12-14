@@ -3,9 +3,7 @@ from .models import Candidate, Course, CourseDate, Timetable
 from import_export import resources,fields
 from import_export.admin import ExportActionMixin
 from import_export.admin import ImportExportModelAdmin
-from .resources import TimetableResource
 import csv
-from pprint import pprint
 from django.http import HttpResponse
 
 
