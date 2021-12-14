@@ -38,7 +38,7 @@ class ExportCsvMixin:
 @admin.register(Timetable)
 class TimetableAdmin(admin.ModelAdmin, ExportCsvMixin):
     list_display = ("candidate", "priority", "get_courses")
-    fields = ("candidate", "priority", "get_courses")
+    fields = ("candidate", "priority", "courses")
 
     # list_filter = ("is_immortal", "category", "origin", IsVeryBenevolentFilter)
     actions = ["export_as_csv"]
