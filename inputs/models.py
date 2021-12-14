@@ -19,6 +19,7 @@ class Course(models.Model):
     def __str__(self):
         return  str(self.id)+". "+str(self.name)+" - "+str(self.professor)
 
+
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
     homeUniversity = models.CharField(max_length=200)
@@ -30,6 +31,9 @@ class Timetable(models.Model):
     courses = models.ManyToManyField(Course)
     priority = models.IntegerField()
     candidate = models.ForeignKey(Candidate, null=True, on_delete=models.SET_NULL, related_name="timetable")
+
+    def get_courses(self):
+        return ",".join([p.name for p in self.courses.all()])
 
     def __str__(self):
         return  str(self.id)+". "+str(self.candidate.name)+"-"+str(self.priority)
