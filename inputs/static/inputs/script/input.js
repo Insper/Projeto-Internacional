@@ -25,7 +25,6 @@ var options = {
   },
 };
 
-
 function createBox(course, date, rowOption) {
   var courseId = course.split(". ")[0];
   var courseName = course.split(". ")[1];
@@ -73,7 +72,6 @@ function updateBox() {
 }
 
 function checkInput(e, courseId, course, dateInfo, rowOption, ects) {
-
   const stringDate = JSON.stringify(dateInfo);
 
   var dates = stringDate.split("<CourseDate: ").map((e) => e.split(">")[0]);
@@ -104,10 +102,10 @@ function checkInput(e, courseId, course, dateInfo, rowOption, ects) {
       if (sameDate.length || sameDateOtherDate.length) {
         // alert("Date Conflict!");
         Swal.fire(
-          'Oops...',
-          'You can not select classes that are simultaneous!',
-          'error'
-        )
+          "Oops...",
+          "You can not select classes that are simultaneous!",
+          "error"
+        );
         e.checked = false;
         break;
       } else {
@@ -115,7 +113,7 @@ function checkInput(e, courseId, course, dateInfo, rowOption, ects) {
           id: idName,
           course: course,
           date: date,
-          ects: ects
+          ects: ects,
         });
 
         // reorder the array by date
@@ -141,34 +139,45 @@ function clearOptions(rowOption, idCheckbox) {
   updateBox();
 }
 
-function sumEcts(rowOption, idCheckbox){
+function sumEcts(rowOption, idCheckbox) {
   var dict = {};
-  for (var day in options[rowOption]){
-    for (var course in options[rowOption][day]){
+  for (var day in options[rowOption]) {
+    for (var course in options[rowOption][day]) {
       let curso = options[rowOption][day][course]["course"];
-      let ects = options[rowOption][day][course]["ects"]
-      if(!(curso in dict)){
+      let ects = options[rowOption][day][course]["ects"];
+      if (!(curso in dict)) {
         dict[curso] = ects;
       }
-    } 
+    }
   }
 
-  var somaEcts = 0; 
-  for (var key in dict){
-    somaEcts+= parseInt(dict[key]); 
+  var somaEcts = 0;
+  for (var key in dict) {
+    somaEcts += parseInt(dict[key]);
   }
-  
-  console.log("Sum of ECTS: ", somaEcts)
 
-  // var h4 = document.createElement("h4");
-  // var text = document.createTextNode("Sum of ECTS: " + [somaECTS]);
-  // h4.appendChild(text);
-  // var element = document.getElementsByClassName("coursesBox");
-  // element.appendChild(h4);
+  var p = document.getElementsByClassName(`sumEcts ${rowOption}`);
+  p[0].innerHTML = "Sum of ECTS: " + somaEcts;
 }
 
-function updateSum(){
-  
+// function that refresh p tag value with ECTs sum
+function refreshEcts(rowOption, idCheckbox) {
+  var dict = {};
+  for (var day in options[rowOption]) {
+    for (var course in options[rowOption][day]) {
+      let curso = options[rowOption][day][course]["course"];
+      let ects = options[rowOption][day][course]["ects"];
+      if (!(curso in dict)) {
+        dict[curso] = ects;
+      }
+    }
+  }
+
+  var somaEcts = 0;
+  for (var key in dict) {
+    somaEcts += parseInt(dict[key]);
+  }
+
+  var p = document.getElementsByClassName("sumEcts");
+  p[0].innerHTML = "Sum of ECTS: " + somaEcts;
 }
-
-
