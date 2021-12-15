@@ -124,6 +124,7 @@ function checkInput(e, courseId, course, dateInfo, rowOption, ects) {
     }
 
     updateBox();
+    sumEcts(rowOption);
   }
 }
 
@@ -137,9 +138,10 @@ function clearOptions(rowOption, idCheckbox) {
     checkbox.checked = false;
   }
   updateBox();
+  sumEcts(rowOption);
 }
 
-function sumEcts(rowOption, idCheckbox) {
+function sumEcts(rowOption) {
   var dict = {};
   for (var day in options[rowOption]) {
     for (var course in options[rowOption][day]) {
