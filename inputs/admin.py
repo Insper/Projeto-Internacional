@@ -25,10 +25,10 @@ class ExportCsvMixin:
         response['Content-Disposition'] = 'attachment; filename="export_file.csv"'
 
         writer = csv.writer(response)
-        writer.writerow(['candidate','priority','courses'])
+        writer.writerow(['candidate', 'timestamp', 'priority','courses'])
 
         for rule in qs:
-            writer.writerow([rule.candidate.name, rule.priority,', '.join(c.name for c in rule.courses.all())])
+            writer.writerow([rule.candidate.name, rule.candidate.timestamp, rule.priority,', '.join(c.name for c in rule.courses.all())])
 
         return response
 
