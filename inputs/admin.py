@@ -28,16 +28,16 @@ class ExportCsvMixin:
         writer.writerow(['candidate', 'timestamp', 'priority','courses'])
 
         for rule in qs:
-            informacao = str(rule.candidate.timestamp)
-            splitTimestamp = informacao.split(" ")
-            splitDate = splitTimestamp[0].split("-")
-            date = splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0]
+            # informacao = str(rule.candidate.timestamp)
+            # splitTimestamp = informacao.split(" ")
+            # splitDate = splitTimestamp[0].split("-")
+            # date = splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0]
 
-            splitTime1 = str(splitTimestamp[1]).split("+")
-            splitTime2 = str(splitTime1[0]).split(":")
-            time = splitTime2[0] + ":" + splitTime2[1] + ":" + splitTime2[2]
-            dateTime = date + " " + time
-            writer.writerow([rule.candidate.name, dateTime, rule.priority,', '.join(c.name for c in rule.courses.all())])
+            # splitTime1 = str(splitTimestamp[1]).split("+")
+            # splitTime2 = str(splitTime1[0]).split(":")
+            # time = splitTime2[0] + ":" + splitTime2[1] + ":" + splitTime2[2]
+            # dateTime = date + " " + time
+            writer.writerow([rule.candidate.name, rule.candidate.timestamp, rule.priority,', '.join(c.name for c in rule.courses.all())])
 
         return response
 

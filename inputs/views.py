@@ -162,11 +162,22 @@ def index(request):
     else:
         all_candidates = Candidate.objects.all()
         all_courses = Course.objects.all()
-        return render(request, 'inputs/index.html', {'candidates': all_candidates, 'courses': all_courses})
+        available_courses = []
+        for course in all_courses:
+            if course.availability != "Unavailable":
+                available_courses.append(course)
+
+        print("Esse é o AVAILABLE: ", available_courses)
+        print("Esse é o COURSES: ", all_courses)
+        return render(request, 'inputs/index.html', {'candidates': all_candidates, 'courses': available_courses})
 
 
 def telaVisualizacao(request):
     all_timetables = Timetable.objects.all()
     all_courses = Course.objects.all()
+    available_courses = []
+    for course in all_courses:
+        if course.availability != "Unavailable":
+            available_courses.append(course)
     print(all_timetables)
-    return render(request, 'inputs/timetables.html', {'timetables': all_timetables, 'courses': all_courses})
+    return render(request, 'inputs/timetables.html', {'timetables': all_timetables, 'courses': available_courses})
