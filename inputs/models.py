@@ -28,7 +28,7 @@ class Candidate(models.Model):
     def __str__(self):
         splitTimestamp = str(self.timestamp).split(" ")
         splitDate = splitTimestamp[0].split("-")
-        date = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0]
+        date = splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0]
 
         splitTime1 = str(splitTimestamp[1]).split("+")
         splitTime2 = str(splitTime1[0]).split(":")
