@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Candidate, Course, Timetable
 import openpyxl
 import os
+from datetime import datetime
+
 
 def check_same_values(list_values):
     for i in range(len(list_values)):
@@ -109,7 +111,12 @@ def index(request):
             return render(request, 'inputs/erro.html')
         else:
             #--------------- Postando a primeira opção --------------------------
-            candidate = Candidate(name = name, homeUniversity = homeUniversity)
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            current_date = now.strftime("%Y-%m-%d")
+            date_time = current_date + " " + current_time
+
+            candidate = Candidate(name = name, homeUniversity = homeUniversity, timestamp = date_time)
             candidate.save()
 
             candidato, criada1 = Candidate.objects.get_or_create(name=name, homeUniversity=homeUniversity)

@@ -23,7 +23,8 @@ class Course(models.Model):
 class Candidate(models.Model):
     name = models.CharField(max_length=200)
     homeUniversity = models.CharField(max_length=200)
-
+    timestamp = models.DateTimeField(editable=True)
+    
     def __str__(self):
         return  str(self.id)+". "+str(self.name)
 
