@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-lg5_8$!wfia2cia%i8z1&pv-#^6nv4+$fv46l)&930i__9io=8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://www.incoming.insper.edu.br/','192.168.16.174','54.167.209.61','localhost',  '127.0.0.1']
+ALLOWED_HOSTS = ['backend','https://incoming.insper.edu.br/','https://www.incoming.insper.edu.br/','192.168.16.174','54.167.209.61','localhost',  '127.0.0.1']
 
 
 # Application definition
