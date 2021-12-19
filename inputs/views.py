@@ -109,11 +109,11 @@ def index(request):
 
         #--------------------------Conferindo os checks e postando tudo -----------------------
 
-        if Checando1 or dataList1 == []:
+        if Checando1 or dataList1 == [] or int(ects1) < 18:
             return render(request, 'inputs/erro.html')
-        elif Checando2 or dataList2 == []:
+        elif Checando2 or dataList2 == [] or int(ects2) < 18:
             return render(request, 'inputs/erro.html')
-        elif Checando3 or dataList3 == []:
+        elif Checando3 or dataList3 == [] or int(ects3) < 18:
             return render(request, 'inputs/erro.html')
         else:
             #--------------- Postando a primeira opção --------------------------

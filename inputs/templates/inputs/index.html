@@ -92,7 +92,8 @@
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
         <!-- <h4 name="ECTS1" value = 3> Hello </h4> -->
-        <h4 class="sumEcts rowOption1" id="ECTS1" value='' name='ECTS1'> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption1"> Sum of ECTS :  0</h4>
+        <input type="hidden" class="sumEcts rowOption1" id="ECTS1" value='' name='ECTS1'></input>
         <div class='inputList'>
           {%for course in courses %}
           <div>
@@ -149,7 +150,8 @@
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption2" id="ECTS2" value='' name='ECTS2'> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption2"> Sum of ECTS :  0</h4>
+        <input type="hidden" class="sumEcts rowOption2" id="ECTS2" value='' name='ECTS2'></input>
         
         <div class='inputList'>
           {%for course in courses %}
@@ -206,8 +208,8 @@
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption3" id="ECTS3" value='' name='ECTS3'> Sum of ECTS :  0</h4>
-
+        <h4 class="sumEcts rowOption3"> Sum of ECTS :  0</h4>
+        <input type="hidden" class="sumEcts rowOption3" id="ECTS3" value='' name='ECTS3'></input>
 
         <div class='inputList'>
           {%for course in courses %}

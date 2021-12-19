@@ -174,7 +174,7 @@ function sumEcts(rowOption) {
   }
 
   console.log("ESSE É O NOME: ", nome)
-  document.getElementById(nome).value = somaEcts;
+  document.getElementById(nome).setAttribute('value', somaEcts)
   console.log("ESSE É O VALUE: ", document.getElementById(nome).setAttribute('value', somaEcts))
 }
 
