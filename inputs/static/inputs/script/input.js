@@ -160,6 +160,22 @@ function sumEcts(rowOption) {
 
   var p = document.getElementsByClassName(`sumEcts ${rowOption}`);
   p[0].innerHTML = "Sum of ECTS: " + somaEcts;
+
+  console.log("ESSE É O ROWOPTION ", rowOption)
+  var nome = "ECTS"
+  if (rowOption == 'rowOption1'){
+    nome += "1" ;
+  }
+  else if (rowOption == 'rowOption2'){
+    nome+="2";
+  } 
+  else{
+    nome+="3";
+  }
+
+  console.log("ESSE É O NOME: ", nome)
+  document.getElementById(nome).value = somaEcts;
+  console.log("ESSE É O VALUE: ", document.getElementById(nome).setAttribute('value', somaEcts))
 }
 
 // function that refresh p tag value with ECTs sum
@@ -182,4 +198,5 @@ function refreshEcts(rowOption, idCheckbox) {
 
   var p = document.getElementsByClassName("sumEcts");
   p[0].innerHTML = "Sum of ECTS: " + somaEcts;
+
 }

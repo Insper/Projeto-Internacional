@@ -25,7 +25,33 @@ class ExportCsvMixin:
         response['Content-Disposition'] = 'attachment; filename="export_file.csv"'
 
         writer = csv.writer(response)
-        writer.writerow(['candidate', 'timestamp', 'priority','courses'])
+        writer.writerow(['candidate', 'timestamp', 'priority','courses', 'course- priority I', 'course- priority II', 'course- priority III'])
+
+        course_priority1 = {}
+        course_priority2 = {}
+        course_priority3 = {}
+        for rule in qs:
+            for curso in rule.courses.all():
+                # print("Esse é o courses.all ", (rule.courses.all()))
+                print("Esse é o priority: ", rule.priority)
+                if rule.priority == 1 and curso.name not in course_priority1:
+                    print("entrei")
+                    course_priority1[curso.name] = 1
+                elif rule.priority == 1 and curso.name in course_priority1:
+                    course_priority1[curso.name]+= 1
+                elif rule.priority == 2 and curso.name not in course_priority2:
+                    course_priority2[curso.name] = 1
+                elif rule.priority == 2 and curso.name in course_priority2:
+                    course_priority2[curso.name] += 1
+                elif rule.priority == 3 and curso.name not in course_priority3:
+                    course_priority3[curso.name] = 1
+                elif rule.priority == 3 and curso.name in course_priority3:
+                    course_priority3[curso.name] += 1
+                
+        print ("PRIORIDADE 1: ", course_priority1)
+        print ("PRIORIDADE 2: ", course_priority2)
+        print ("PRIORIDADE 3: ", course_priority3)
+
 
         for rule in qs:
             informacao = str(rule.candidate.timestamp)
@@ -37,7 +63,8 @@ class ExportCsvMixin:
             splitTime2 = str(splitTime1[0]).split(":")
             time = splitTime2[0] + ":" + splitTime2[1] + ":" + splitTime2[2]
             dateTime = date + " " + time
-            writer.writerow([rule.candidate.name, dateTime, rule.priority,', '.join(c.name for c in rule.courses.all())])
+            writer.writerow([rule.candidate.name, dateTime, rule.priority,', '.join(c.name for c in rule.courses.all()), ", ".join(key+":"+str(value) for key,value in course_priority1.items()), ", ".join(key2+":"+str(value2)  for key2,value2 in course_priority2.items()), ", ".join(key3+":"+str(value3)  for key3,value3 in course_priority3.items())])
+
 
         return response
 

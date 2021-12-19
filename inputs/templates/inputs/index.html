@@ -9,11 +9,11 @@
   <p class="textRedBox"> 
     <strong>Please, read this carefully.</strong>
      <br><br>
-    We have defined the list of elective courses taught in English for the fall semester (August - December 2021). <br><br>
+    We have defined the list of elective courses taught in English for the fall semester (February - June 2022) <br><br>
 
     Attached to the e-mail you received you will find the syllabus and timetable for the courses. <br><br>
 
-    Please indicate your Course’s choices until June 11 – 12:00 (Brazil Time) in the form below.<br><br>
+    Please indicate your Course’s choices until December 7th – 12:00 (Brazil Time) in the form below.<br><br>
 
     Take special attention to the timetable, courses are offered once or twice a week, depending on the course load. <br><br>
     - 6 ECTS courses : Classes twice a week. <br>
@@ -21,7 +21,7 @@
 
     It is very important to make sure you avoid overlaps in your choices, be very attentive to the classes timetable. You will not be able to choose courses in the same time slots. <br><br>
 
-    Attention: Available spaces in each course are first-come-first-serve basis, we will confirm your courses' choice by June 25th. <br><br>
+    Attention: Available spaces in each course are first-come-first-serve basis, we will confirm your courses' choice by December 20th. <br><br>
 
     Based on availability, students will be able to add or drop courses on the first week of classes, only. <br><br>
 
@@ -42,13 +42,14 @@
 
   <div class="redBox">
     <div class="textRedBox">
-      <h4> Attention! </h4> <br><br>
+      <h4 style="color:red;"> Attention! </h4> <br><br>
 
-      You must choose three schedule options for this semester in order of priority (first option, second option and third option). <br><br>
-      If you can only choose one schedule option, you must repeat the same courses you selected in the first option to the second 
-      and third as well. <br><br>
-      Also, remember that the sum of ECTS must be at least 18. <br><br>
-      As you select the courses, you'll see the day(s) of the week and time that the course is held. 
+      You will find bellow the course options and a timetable, by selecting the courses you would like to take, the schedule will be fullfilled. <br><br>
+      If there are any overlaps, you will need to select another course.<br><br>
+      You are required to send three options of schedules with the courses you would like to take, by order of priority (first option – most wanted courses, second option and third option). <br><br>
+      It is mandatory to send three options of schedule. <br><br>
+      <p style="color:red;">IMPORTANT: You must select at least 18 ECTS in courses in each schedule.</p>
+
 
     </div>
   </div>
@@ -90,7 +91,8 @@
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption1"> Sum of ECTS :  0</h4>
+        <!-- <h4 name="ECTS1" value = 3> Hello </h4> -->
+        <h4 class="sumEcts rowOption1" id="ECTS1" value='' name='ECTS1'> Sum of ECTS :  0</h4>
         <div class='inputList'>
           {%for course in courses %}
           <div>
@@ -147,7 +149,7 @@
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption2"> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption2" id="ECTS2" value='' name='ECTS2'> Sum of ECTS :  0</h4>
         
         <div class='inputList'>
           {%for course in courses %}
@@ -204,7 +206,7 @@
       <div class="coursesBox">
         <h1>Select the courses below:</h1>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption3"> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption3" id="ECTS3" value='' name='ECTS3'> Sum of ECTS :  0</h4>
 
 
         <div class='inputList'>
@@ -225,16 +227,6 @@
   <div class="buttonCenter">
     <a class="bn632-hover bn28" onclick="clearOptions('rowOption3', 'checkbox3')">Clear All</a>
   </div>
-
-  <!-- <ul>
-      {% for candidate in candidates %}
-      <li>{{candidate.name}}  {{candidate.homeUniversity}}</li>
-      {% endfor %}
-
-      {% for course in courses %}
-      <li>{{course.name}}  {{course.professor}}  {{course.ects}}</li>
-      {% endfor %}
-  </ul> -->
 
   <div class="buttonCenter">
     <button class="bn632-hover bn28" type="submit">Submit</button>

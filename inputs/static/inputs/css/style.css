@@ -238,3 +238,56 @@ form {
 
 /* ---------------------------------------------------- */
 
+
+.sizeCheck{
+  margin-bottom: 2rem;
+}
+
+.card {
+  position: relative;
+  width: 420px;
+  display: block;
+  margin: 40px auto;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.upper-side {
+  padding: 2em;
+  background-color: var(--color-secondary);
+  display: block;
+  color: #fff;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.checkmark {
+  font-weight: lighter;
+  fill: #fff;
+  margin: -3.5em auto auto 20px;
+}
+
+.status {
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1em;
+  margin-top: -.2em;
+  margin-bottom: 0;
+}
+
+.lower-side {
+  padding: 2em 2em 5em 2em;
+  background: #fff;
+  display: block;
+  border-style: dashed;
+  border-color: var(--color-primary);
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.message {
+  margin-top: -.5em;
+  color: black;
+  letter-spacing: 1px;
+}
