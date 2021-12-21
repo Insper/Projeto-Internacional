@@ -55,9 +55,10 @@ class ExportCsvMixin:
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="export_file.csv"'
 
-        fieldnames = ['course- priority I', 'course- priority II', 'course- priority III']
+        fieldnames = ['course', 'priority I', 'priority II', 'priority III']
 
-        writer_table2 = csv.DictWriter(response, fieldnames=fieldnames)
+        writer_table2 = csv.writer(response)
+        writer_table2.writerow(fieldnames)
         
         # writer_table2.writerow(['course- priority I', 'course- priority II', 'course- priority III'])
 
@@ -82,23 +83,56 @@ class ExportCsvMixin:
                 elif rule.priority == 3 and curso.name in course_priority3:
                     course_priority3[curso.name] += 1
             
-        writer_table2.writeheader()
-        for data in course_priority1:
-            writer_table2.writerow(data)
+        listaCourses = []
+        for curso1 in course_priority1:
+            if curso1 not in listaCourses:
+                listaCourses.append(curso1)
+        for curso2 in course_priority2:
+            if curso2 not in listaCourses:
+                listaCourses.append(curso2)
+        for curso3 in course_priority3:
+            if curso3 not in listaCourses:
+                listaCourses.append(curso3)
 
-        # for key1, value1 in course_priority1.items():
-        #     writer_table2.writerow([key1, value1])
-        # for key2, value2 in course_priority2.items():
-        #     writer_table2.writerow([key2, value2])
-        # for key3, value3 in course_priority3.items():
-        #     writer_table2.writerow([key3, value3])
-        
-        # writer_table2.writerow([";".join(key+":"+str(value) for key,value in course_priority1.items()), ";".join(key2+":"+str(value2)  for key2,value2 in course_priority2.items()), ";".join(key3+":"+str(value3)  for key3,value3 in course_priority3.items())])
+        print("ESSA É A LISTA: ", listaCourses)
 
-                
+
+        valuesCoursePriority1 = []
+        valuesCoursePriority2 = []
+        valuesCoursePriority3 = []
+
+        for curso1 in listaCourses:
+            if curso1 not in course_priority1 :
+                    valuesCoursePriority1.append('0')
+            for data1 in course_priority1:
+                if data1 == curso1:
+                    valuesCoursePriority1.append(str(course_priority1[data1]))
+
+        for curso2 in listaCourses:
+            if curso2 not in course_priority2 :
+                    valuesCoursePriority2.append('0')
+            for data2 in course_priority2:
+                if data2 == curso2:
+                    valuesCoursePriority2.append(str(course_priority2[data2]))      
+
+        for curso3 in listaCourses:
+            if curso3 not in course_priority3 :
+                    valuesCoursePriority3.append('0')
+            for data3 in course_priority3:
+                if data3 == curso3:
+                    valuesCoursePriority3.append(str(course_priority3[data3]))
+ 
+                        
         print ("PRIORIDADE 1: ", course_priority1)
         print ("PRIORIDADE 2: ", course_priority2)
         print ("PRIORIDADE 3: ", course_priority3)
+
+        print("VALORES: ", valuesCoursePriority1)
+        print("VALORES: ", valuesCoursePriority2)
+        print("VALORES: ", valuesCoursePriority3)
+
+        for i in range(len(listaCourses)):
+            writer_table2.writerow([listaCourses[i], valuesCoursePriority1[i], valuesCoursePriority2[i], valuesCoursePriority3[i]])
 
         return response
 
