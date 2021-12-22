@@ -27,6 +27,7 @@ body {
 }
 
 .appbar {
+  z-index: 999;
   display: flex;
   top: 0;
   left: 0;
@@ -152,14 +153,14 @@ form {
   padding: 0.5rem;
 }
 
-.coursesBox h1{
+.coursesBox h1 {
   margin: 10px;
   font-size: 1.5rem;
   font-weight: 700;
   color: black;
 }
 
-.coursesBox h4{
+.coursesBox h4 {
   margin: 10px;
   font-weight: 700;
   color: black;
@@ -167,8 +168,19 @@ form {
 
 .inputList {
   padding: 0px 10px;
-  height: 75%;
+  height: 70%;
   overflow-y: scroll;
+}
+
+.submitButtonContainer {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.submitButtonContainer button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
 }
 
 ::-webkit-scrollbar {
@@ -187,32 +199,30 @@ form {
   background: var(--color-secondary);
 }
 
-
 .bn632-hover {
-  width: 10%;
-  padding: 1.5%;
+  z-index: -1;
+  padding: 0.3rem 0.5rem;
   font-size: 16px;
   font-weight: 600;
   color: white;
   cursor: pointer;
   margin: 20px;
-  height: 55px;
-  text-align:center;
+  text-align: center;
   border: none;
   background-size: 300% 100%;
-  border-radius: 50px;
-  -webkit-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  border-radius: 5px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .bn632-hover:hover {
   background-position: 100% 0;
-  -webkit-transition: all .4s ease-in-out;
-  -o-transition: all .4s ease-in-out;
-  -webkit-transition: all .4s ease-in-out;
-  transition: all .4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .bn632-hover:focus {
@@ -220,26 +230,31 @@ form {
 }
 
 .bn632-hover.bn28 {
-    background-image: linear-gradient(
-      to right,
-      var(--color-primary),
-      #f02e34,
-      #df3338,
-      #e2373f
-    );
-    box-shadow: 0 1px 3px rgba(242, 97, 103, 0.4);
-  }
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    #f02e34,
+    #df3338,
+    #e2373f
+  );
+  box-shadow: 0 1px 3px rgba(242, 97, 103, 0.4);
+}
 
-.buttonCenter{
+.containerHeader {
+  align-items: center;
   display: flex;
-  justify-content: center;
-  margin: 5px 0 5px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttonCenter {
+  position: absolute;
+  right: 30px;
 }
 
 /* ---------------------------------------------------- */
 
-
-.sizeCheck{
+.sizeCheck {
   margin-bottom: 2rem;
 }
 
@@ -249,7 +264,7 @@ form {
   display: block;
   margin: 40px auto;
   text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .upper-side {
@@ -272,7 +287,7 @@ form {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 1em;
-  margin-top: -.2em;
+  margin-top: -0.2em;
   margin-bottom: 0;
 }
 
@@ -287,7 +302,7 @@ form {
 }
 
 .message {
-  margin-top: -.5em;
+  margin-top: -0.5em;
   color: black;
   letter-spacing: 1px;
 }

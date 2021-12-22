@@ -55,9 +55,7 @@
   </div>
 
 
-  <br><br>
   <h3>First Option</h3>
-  <br>
 
   <div class="calendarAndCourses course1">
     <div class="calendarAndCourseContainer">
@@ -89,10 +87,15 @@
       </div>
     
       <div class="coursesBox">
-        <h1>Select the courses below:</h1>
+        <div class='containerHeader'>
+          <h1>Select the courses below:</h1>
+          <div class="buttonCenter">
+            <a class="bn632-hover bn28" onclick="clearOptions('rowOption1', 'checkbox1')">Clear All</a>
+          </div>
+        </div>
         <h4>ECTS - Course - Professor</h4>
         <!-- <h4 name="ECTS1" value = 3> Hello </h4> -->
-        <h4 class="sumEcts rowOption1"> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption1"> Sum of ECTS:  0</h4>
         <input type="hidden" class="sumEcts rowOption1" id="ECTS1" value='' name='ECTS1'></input>
         <div class='inputList'>
           {%for course in courses %}
@@ -109,13 +112,7 @@
     </div>
   </div>
 
-  <div class="buttonCenter">
-    <a class="bn632-hover bn28" onclick="clearOptions('rowOption1', 'checkbox1')">Clear All</a>
-  </div>
-
-  <br><br>
   <h3>Second Option</h3>
-  <br>
 
 
   <div class="calendarAndCourses course2">
@@ -148,9 +145,14 @@
       </div>
     
       <div class="coursesBox">
-        <h1>Select the courses below:</h1>
+        <div class='containerHeader'>
+          <h1>Select the courses below:</h1>
+          <div class="buttonCenter">
+            <a class="bn632-hover bn28" onclick="clearOptions('rowOption2', 'checkbox2')">Clear All</a>
+          </div>
+        </div>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption2"> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption2"> Sum of ECTS:  0</h4>
         <input type="hidden" class="sumEcts rowOption2" id="ECTS2" value='' name='ECTS2'></input>
         
         <div class='inputList'>
@@ -168,13 +170,7 @@
     </div>
   </div>
 
-  <div class="buttonCenter">
-    <a class="bn632-hover bn28" onclick="clearOptions('rowOption2', 'checkbox2')">Clear All</a>
-  </div>
-
-  <br><br>
   <h3>Third Option</h3>
-  <br>
 
   <div class="calendarAndCourses course3">
     <div class="calendarAndCourseContainer">
@@ -206,9 +202,14 @@
       </div>
     
       <div class="coursesBox">
-        <h1>Select the courses below:</h1>
+        <div class='containerHeader'>
+          <h1>Select the courses below:</h1>
+          <div class="buttonCenter">
+            <a class="bn632-hover bn28" onclick="clearOptions('rowOption3', 'checkbox3')">Clear All</a>
+          </div>
+        </div>
         <h4>ECTS - Course - Professor</h4>
-        <h4 class="sumEcts rowOption3"> Sum of ECTS :  0</h4>
+        <h4 class="sumEcts rowOption3"> Sum of ECTS:  0</h4>
         <input type="hidden" class="sumEcts rowOption3" id="ECTS3" value='' name='ECTS3'></input>
 
         <div class='inputList'>
@@ -226,11 +227,7 @@
     </div>
   </div>
 
-  <div class="buttonCenter">
-    <a class="bn632-hover bn28" onclick="clearOptions('rowOption3', 'checkbox3')">Clear All</a>
-  </div>
-
-  <div class="buttonCenter">
+  <div class='submitButtonContainer'>
     <button class="bn632-hover bn28" type="submit">Submit</button>
   </div>
 
