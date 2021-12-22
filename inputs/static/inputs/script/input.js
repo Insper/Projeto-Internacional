@@ -161,7 +161,6 @@ function sumEcts(rowOption) {
   var p = document.getElementsByClassName(`sumEcts ${rowOption}`);
   p[0].innerHTML = "Sum of ECTS: " + somaEcts;
 
-  console.log("ESSE É O ROWOPTION ", rowOption)
   var nome = "ECTS"
   if (rowOption == 'rowOption1'){
     nome += "1" ;
@@ -173,9 +172,7 @@ function sumEcts(rowOption) {
     nome+="3";
   }
 
-  console.log("ESSE É O NOME: ", nome)
   document.getElementById(nome).setAttribute('value', somaEcts)
-  console.log("ESSE É O VALUE: ", document.getElementById(nome).setAttribute('value', somaEcts))
 }
 
 // function that refresh p tag value with ECTs sum
